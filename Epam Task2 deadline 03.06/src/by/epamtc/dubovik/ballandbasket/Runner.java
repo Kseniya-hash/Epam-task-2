@@ -11,8 +11,8 @@ public class Runner {
 		
 		try {
 			Basket basketOfballs = RandomBasketGenerator.generateRandomBasket(sizeOfBasket,
-																	   maxWeight,
-																	   arrayOfColors);
+																			  maxWeight,
+																			  arrayOfColors);
 			System.out.println("Вес корзины:" + basketOfballs.calculateWeight());
 			System.out.println("Количество  синих мячей:"
 							   + basketOfballs.countColored(Color.BLUE));
