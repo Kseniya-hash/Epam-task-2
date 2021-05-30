@@ -38,7 +38,6 @@ public class Ball {
 		return color;
 	}
 	
-	//проверить позже
 	public int hashCode() {
 		return color.hashCode() + (int)(31 * weight);
 	}
@@ -58,7 +57,6 @@ public class Ball {
 		return this.color.equals(other.color);
 	}
 	
-	//проверить позже
 	public String toString() {
 		String s = this.getClass().getSimpleName()
 				 + ": weight: " + weight + ", color: " + color;

@@ -6,11 +6,9 @@ import java.util.LinkedList;
 
 public class Basket {
 	private Collection<Ball> basket;
-	private int weightOfAll;
 	
 	public Basket() {
 		basket = new LinkedList<Ball>();
-		weightOfAll = 0;
 	}
 	
 	public Collection<Ball> getBasket() {
