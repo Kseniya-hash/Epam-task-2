@@ -5,8 +5,8 @@ import java.awt.Color;
 public class RandomBasketGenerator {
 	
 	public static Basket generateRandomBasket(int sizeOfBasket, 
-											  double maxWeightOfBall, 
-											  Color[] VariantColor) throws Exception {
+		                                      double maxWeightOfBall, 
+		                                      Color[] VariantColor) throws Exception {
 		Basket randomBasket = new Basket();
 		
 		if (sizeOfBasket < 0)
