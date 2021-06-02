@@ -11,12 +11,14 @@ public class Runner {
 		Basket testBasket = new Basket(capacity);
 		System.out.println("Введите количество мячей:");
 		int count = ReaderFromConsole.readInt();
-		for(int i = 0; i < count; ++i) {
+		int i = 0;
+		while(i < count) {
 			try {
-				System.out.println("Введите вес мяча и его цвет");
+				System.out.println("Введите вес мяча и его цвет:");
 				testBasket.addBall(ReaderFromConsole.readBall());
+				++i;
 			} catch (BasketIsOverweightException e) {
-				System.out.println(e.getMessage());
+				System.out.println(e.getMessage()+ "\nМяч не буудет добавлен в корзину.");
 			}
 		}
 		System.out.println("Вес корзины: " + testBasket.getWeightOfBasket());
