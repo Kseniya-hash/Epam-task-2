@@ -1,28 +1,21 @@
-package by.epamtc.dubovik.ballandbasket;
+package by.epamtc.dubovik.ballandbasket.entities;
 
-import java.awt.Color;
+import java.io.Serializable;
 
-public class Ball {
+public class Ball implements Serializable{
 	private double weight;
 	private Color color;
 	
 	public Ball() {
-		weight = 0;
-		color = null;
+		color = Color.TRANSPARENT;
 	}
 	
-	public Ball(double weight, Color color) throws Exception {
-		if(weight < 0) {
-			throw new Exception("Weight can not be below zero");
-		}
+	public Ball(double weight, Color color) {
 		this.weight = weight;
 		this.color = color;
 	}
 	
-	public void setWeight(double weight) throws Exception {
-		if(weight < 0) {
-			throw new Exception("Weight can not be below zero");
-		}
+	public void setWeight(double weight) {
 		this.weight = weight;
 	}
 	
@@ -38,25 +31,26 @@ public class Ball {
 		return color;
 	}
 	
+	@Override
 	public int hashCode() {
 		return color.hashCode() + (int)(31 * weight);
 	}
 	
+	@Override
 	public boolean equals(Object o) {
-		if(this == o)
+		if(this == o) 
 			return true;
-		if(o == null)
+		if(o == null) 
 			return false;
 		if(this.getClass() != o.getClass())
 			return false;
 		Ball other = (Ball)o;
-		if(this.weight != other.weight)
-			return false;
-		if(this.color == null)
-			return  other.color == null;
-		return this.color.equals(other.color);
+		if((this.weight == other.weight) && (this.color.equals(other.color)))
+			return true;
+		return false;
 	}
 	
+	@Override
 	public String toString() {
 		String s = this.getClass().getSimpleName()
 				 + ": weight: " + weight + ", color: " + color;

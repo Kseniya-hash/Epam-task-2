@@ -1,24 +1,29 @@
 package by.epamtc.dubovik.ballandbasket;
 
-import java.awt.Color;
+import by.epamtc.dubovik.ballandbasket.entities.*;
+import exception.*;
 
 public class Runner {
 	
 	public static void main(String[] args) {
-		int sizeOfBasket = 10;
-		double maxWeight = 20;
-		Color[] arrayOfColors = {Color.BLUE, Color.YELLOW, Color.RED};
-		
+		System.out.println("Введите вместительность корзины (ее максимальный вес):");
+		double capacity = ReaderFromConsole.readDouble();
+		Basket testBasket = new Basket(capacity);
+		System.out.println("Введите количество мячей:");
+		int count = ReaderFromConsole.readInt();
+		for(int i = 0; i < count; ++i) {
+			try {
+				System.out.println("Введите вес мяча и его цвет");
+				testBasket.addBall(ReaderFromConsole.readBall());
+			} catch (BasketIsOverweightException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		System.out.println("Вес корзины: " + testBasket.getWeightOfBasket());
 		try {
-			Basket basketOfballs = RandomBasketGenerator.generateRandomBasket(sizeOfBasket,
-			                                                                  maxWeight,
-			                                                                  arrayOfColors);
-			System.out.println("Вес корзины:" + basketOfballs.calculateWeight());
-			System.out.println("Количество  синих мячей:"
-							   + basketOfballs.countColored(Color.BLUE));
-			System.out.println("Корзина:\n" + basketOfballs.toString());
-		} catch (Exception e) {
-			System.out.print(e);
+		System.out.println("Количество синих мячей: " + BasketService.countColored(testBasket, Color.BLUE));
+		} catch(NullColorException e) {
+			System.out.println(e.getMessage());
 		}
 	}
 }
