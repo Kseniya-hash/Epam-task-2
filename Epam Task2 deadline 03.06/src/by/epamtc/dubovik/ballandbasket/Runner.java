@@ -1,7 +1,7 @@
 package by.epamtc.dubovik.ballandbasket;
 
 import by.epamtc.dubovik.ballandbasket.entities.*;
-import exception.*;
+import by.epamtc.dubovik.ballandbasket.exception.*;
 
 public class Runner {
 	

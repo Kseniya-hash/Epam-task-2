@@ -1,4 +1,4 @@
-package exception;
+package by.epamtc.dubovik.ballandbasket.exception;
 
 public class BasketIsOverweightException extends Exception {
 	

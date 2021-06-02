@@ -1,7 +1,8 @@
 package by.epamtc.dubovik.ballandbasket.entities;
 
 import java.util.*;
-import exception.BasketIsOverweightException;
+
+import by.epamtc.dubovik.ballandbasket.exception.BasketIsOverweightException;
 
 public class Basket implements Iterable<Ball> {
 	private List<Ball> basket;
