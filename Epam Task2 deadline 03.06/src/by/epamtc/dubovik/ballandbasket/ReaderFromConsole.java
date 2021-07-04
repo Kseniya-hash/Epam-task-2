@@ -1,7 +1,8 @@
 package by.epamtc.dubovik.ballandbasket;
 
 import java.util.Scanner;
-import by.epamtc.dubovik.ballandbasket.entities.*;
+
+import by.epamtc.dubovik.ballandbasket.entity.*;
 
 public class ReaderFromConsole {
 	

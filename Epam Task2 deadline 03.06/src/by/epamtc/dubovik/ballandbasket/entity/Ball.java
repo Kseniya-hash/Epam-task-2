@@ -1,4 +1,4 @@
-package by.epamtc.dubovik.ballandbasket.entities;
+package by.epamtc.dubovik.ballandbasket.entity;
 
 import java.io.Serializable;
 
@@ -6,9 +6,7 @@ public class Ball implements Serializable{
 	private double weight;
 	private Color color;
 	
-	public Ball() {
-		color = Color.TRANSPARENT;
-	}
+	public Ball() {}
 	
 	public Ball(double weight, Color color) {
 		this.weight = weight;
@@ -33,7 +31,7 @@ public class Ball implements Serializable{
 	
 	@Override
 	public int hashCode() {
-		return color.hashCode() + (int)(31 * weight);
+		return (int)(color.hashCode() + 31 * weight);
 	}
 	
 	@Override
@@ -45,15 +43,19 @@ public class Ball implements Serializable{
 		if(this.getClass() != o.getClass())
 			return false;
 		Ball other = (Ball)o;
-		if((this.weight == other.weight) && (this.color.equals(other.color)))
-			return true;
+		if(this.weight == other.weight) {
+			if(this.color == null) {
+				return other.color == null;
+			}
+			return this.color.equals(other.color);
+		}
 		return false;
 	}
 	
 	@Override
 	public String toString() {
 		String s = this.getClass().getSimpleName()
-				 + ": weight: " + weight + ", color: " + color;
+				 + ": " + weight + " " + color;
 		return s;
 	}
 }

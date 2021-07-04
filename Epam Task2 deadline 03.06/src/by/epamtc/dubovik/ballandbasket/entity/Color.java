@@ -1,4 +1,4 @@
-package by.epamtc.dubovik.ballandbasket.entities;
+package by.epamtc.dubovik.ballandbasket.entity;
 
 public enum Color {
 	BLACK,
